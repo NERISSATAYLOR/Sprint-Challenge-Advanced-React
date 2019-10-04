@@ -19,7 +19,7 @@ class App extends React.Component {
       .then(data => {
         // console.log(data);
         this.setState({ mates: data });
-        //console.log('mates', data);
+        //console.log(data);
 
       },
       )
@@ -27,21 +27,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-
-        {this.state.mates && this.state.mates.map(mate => {
-          return (
-            <PlayersList key={this.state.mates.id} mates={mates}) >
-
-            </div>
-
+        <NavBar />
+        <PlayersList key={this.state.mates.id} mates={this.state.mates} />
+      </div>
     )
-  })
-}
-      </div >
-    );
+
   }
+
 }
-
-
-
 export default App;

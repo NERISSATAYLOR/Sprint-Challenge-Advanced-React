@@ -9,11 +9,11 @@ test('App renders without crashing', () => {
 
 });
 test(' name', () => {
-  const container = render(<PlayersList />);
-  container.getAllByText(/name/i);
+  const container = render(<App />);
+  container.getAllByText(/Players Club/i);
 });
 
 test('mate is found', () => {
   const container = render(<App />);
-  container.getAllByText(/mate/i);
+  container.getAllByText(/Players Club/i);
 });
