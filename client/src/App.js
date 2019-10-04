@@ -16,9 +16,10 @@ class App extends React.Component {
   componentDidMount() {
     fetch("http://localhost:5000/api/players")
       .then(res => res.json())
-      .then(res => {
-        //console.log(res);
-        this.setState({ mates: res.data.mates });
+      .then(data => {
+        // console.log(data);
+        this.setState({ mates: data });
+        //console.log('mates', data);
 
       },
       )
@@ -29,15 +30,14 @@ class App extends React.Component {
 
         {this.state.mates && this.state.mates.map(mate => {
           return (
-            <div key={this.state.mate.id}>
-              <PlayersList mate={mate} />
+            <PlayersList key={this.state.mates.id} mates={mates}) >
 
             </div>
 
-          )
-        })
-        }
-      </div>
+    )
+  })
+}
+      </div >
     );
   }
 }
