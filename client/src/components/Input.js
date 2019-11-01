@@ -8,7 +8,7 @@ const Input = () => {
     const [name, setName] = useLocalStorage('name', '');
 
     return (
-        <div>
+        <div data-test-id="react">
             <input
                 type="text"
                 placeholder="Enter your name"
