@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import PlayersList from './components/PlayersList';
 import './App.css';
+import NavBar from './components/NavBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+
+      mates: []
+
+    }
+  }
+  componentDidMount() {
+    fetch("http://localhost:5000/api/players")
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        this.setState({ mates: data });
+        //console.log(data);
+
+      },
+      )
+  }
+  render() {
+    return (
+      <div className="App">
+        <NavBar />
+        <PlayersList key={this.state.mates.id} mates={this.state.mates} />
+      </div>
+    )
+
+  }
+
 }
-
 export default App;
